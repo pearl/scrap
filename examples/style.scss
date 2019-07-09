@@ -1,0 +1,140 @@
+/* navbar */
+nav {
+	/* navbar item */
+	ul li {
+
+	}
+}
+
+/* page title */
+body > h1 {
+
+}
+
+/* list of challenges */
+section.challenges ul {
+	/* challenge modal */
+	dialog {
+		/* value */
+		h4.value {
+
+		}
+		/* solves */
+		h4.solves {
+
+		}
+		/* author */
+		h4.author {
+
+		}
+		/* description */
+		div.description {
+
+		}
+		/* tags */
+		h4.tags {
+
+		}
+		/* incorrect flag message */
+		p.incorrect {
+
+		}
+		/* solved message */
+		p.solved {
+
+		}
+		/* flag submission form */
+		form.submit {
+
+		}
+		/* close modal button */
+		a.close {
+
+		}
+	}
+	/* challenge listing */
+	li {
+		/* challenge title */
+		h2 {
+
+		}
+		/* value */
+		p.value {
+
+		}
+		/* tags */
+		p.tags {
+
+		}
+	}
+}
+
+/* scoreboard */
+section.scoreboard table {
+	/* headings */
+	thead tr {
+		/* place heading */
+		th.place {
+
+		}
+		/* team heading */
+		th.team {
+
+		}
+		/* score heading */
+		th.score {
+
+		}
+		/* challenge heading */
+		th.challenge {
+
+		}
+	}
+	/* team row */
+	tbody tr {
+		/* team placing */
+		td.place {
+
+		}
+		/* team name */
+		td.team {
+
+		}
+		/* team score */
+		td.score {
+
+		}
+		/* challenge status */
+		td.challenge {
+
+		}
+	}
+}
+
+/* profile */
+section.profile form {
+	/* error messsage */
+	p.error {
+
+	}
+}
+/* not logged in message */
+p.not-logged-in {
+
+}
+
+/* login */
+section.login form {
+	/* error messsage */
+	p.error {
+
+	}
+}
+
+/* register */
+section.register form {
+	/* error messsage */
+	p.error {
+
+	}
+}

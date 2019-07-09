@@ -1,0 +1,6 @@
+title = "MyCTF"
+home = """
+# Welcome to MyCTF!
+Enjoy our many *challenges*."""
+start = 2000-01-01T00:00:00Z
+stop = 2100-01-01T00:00:00Z

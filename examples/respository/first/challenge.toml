@@ -1,0 +1,10 @@
+slug = "caesar_cipher"
+title = "Caesar Cipher"
+author = "username"
+description = """
+I encrypted a [message](ciphertext.txt) \
+with a [Caesar cipher](encrypt.py)!"""
+tags = [ "crypto", "classical" ]
+files = [ "path/to/ciphertext.txt", "encrypt.py" ]
+flag = "flag{}"
+enabled = true
