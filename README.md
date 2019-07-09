@@ -1,6 +1,6 @@
 # Scrap
 
-A simple CTF platform written in Rust.
+A simple CTF platform in a single binary.
 
 Scrap is designed to be as fast and lightweight as possible. It compiles into a single Rust binary and can handle many thousands of teams. Furthermore, Scrap's browser webpage is completely free of JavaScript. Due to various design decisions, there are a few constraints:
 
