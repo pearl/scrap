@@ -23,7 +23,7 @@ Download the [latest version](https://github.com/pearl/scrap/releases/latest) fr
 
 ### Repository
 
-Scrap is centered around a central repository that specifies challenges and files. An example is available [here](https://github.com/pearl/scrap/tree/master/examples/respository).
+Scrap is centered around a central repository that specifies challenges and files. An example is available [here](https://github.com/pearl/scrap/tree/master/examples/repository).
 
 ```
 repository
