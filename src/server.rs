@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use chrono::DateTime;
 use chrono::offset::Utc;
 use maud::{html, DOCTYPE, Markup, PreEscaped};
 use r2d2_postgres::postgres::error::SqlState;
@@ -9,7 +10,7 @@ use warp::reject::custom;
 use warp::reply::with_header;
 use warp::path::{end, path};
 
-use crate::database::{Client, ClientPool};
+use crate::{Client, ClientPool};
 
 macro_rules! result {
 	($expr:expr) => {
@@ -85,7 +86,7 @@ fn get_home(mut client: Client, session: String) -> Result<impl Reply, Rejection
 fn get_challenges(mut client: Client, session: String, invalid: String) -> Result<impl Reply, Rejection> {
 	let now = Utc::now();
 	let ctf = &result!(client.query("SELECT start, stop FROM scrap.ctf", &[]))[0];
-	if ctf.try_get("start").map(|start| now < start).unwrap_or(false) {
+	if ctf.try_get::<_, DateTime<Utc>>("start").map(|start| now < start).unwrap_or(false) {
 		return Ok(with_header(page("Challenges", html! {
 			h1 { "Challenges" }
 			p { "Challenges are not available." }
@@ -167,7 +168,7 @@ fn get_challenges(mut client: Client, session: String, invalid: String) -> Resul
 fn get_scoreboard(mut client: Client, session: String) -> Result<impl Reply, Rejection> {
 	let now = Utc::now();
 	let ctf = &result!(client.query("SELECT start, stop FROM scrap.ctf", &[]))[0];
-	if ctf.try_get("start").map(|start| now < start).unwrap_or(false) {
+	if ctf.try_get::<_, DateTime<Utc>>("start").map(|start| now < start).unwrap_or(false) {
 		return Ok(page("Scoreboard", html! {
 			h1 { "Scoreboard" }
 			p { "Scoreboard is not available." }
@@ -321,8 +322,8 @@ fn error(err: Rejection) -> Result<impl Reply, Rejection> {
 fn submit(mut client: Client, session: String, form: HashMap<String, String>) -> Result<impl Reply, Rejection> {
 	let now = Utc::now();
 	let ctf = &result!(client.query("SELECT start, stop FROM scrap.ctf", &[]))[0];
-	if ctf.try_get("start").map(|start| now < start).unwrap_or(false) || 
-		ctf.try_get("stop").map(|stop| now > stop).unwrap_or(false) {
+	if ctf.try_get::<_, DateTime<Utc>>("start").map(|start| now < start).unwrap_or(false) || 
+		ctf.try_get::<_, DateTime<Utc>>("stop").map(|stop| now > stop).unwrap_or(false) {
 		return Ok(Response::builder()
 			.header("location", "/challenges")
 			.status(StatusCode::SEE_OTHER)
